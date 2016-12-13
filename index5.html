@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id="sample"></div>
+<button onclick="displayDate()">Try it!</button>
+
+<script>
+
+function displayDate()
+{
+    try{
+    document.getElementById("samples").innerHTML=Date();   
+    }
+    catch(e){
+        alert(e.name);
+    }
+}
+
+
+</script>
+
+</body>
+</html>

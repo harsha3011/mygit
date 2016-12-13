@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="bower_components/react/react.min.js"></script>
+	<script type="text/javascript" src="bower_components/react/react-dom.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+  <div id="mynnn"></div> 
+  <script type="text/babel">
+    var Addlist=React.createClass({
+     adding: function(){
+      var val = this.refs.additem.value;
+      console.log('Adding thee content',val);
+     },
+     render: function(){
+      return (<div>
+       <textarea ref="additem"></textarea>
+       <button onClick={this.adding}>ADD</button>
+       </div>
+      );
+     }
+    });
+    var Checkbox = React.createClass({
+     getInitialState: function(){
+      return {checked:false};
+     },
+     handleChecked: function(){
+      this.setState({checked : !this.state.checked})
+     },
+     render : function(){
+      if(this.state.checked){
+       return (<li>{this.props.task.map((list)=>{
+        return(<div> 
+         <input type="checkbox" onChange={this.handleChecked} /><strike>{list}</strike>
+         </div>
+        );
+       })}</li>);
+      }
+      else{
+       return (<li>{this.props.task.map((list)=>{
+        return(<div> 
+         <input type="checkbox" ref="chcked" onChange={this.handleChecked} />{list}
+         </div>);
+       })}</li>);
+      }
+     }
+    });
+    var items=['Books','medicine','vegeee'];
+    items.splice(items.length,0,'five');
+    ReactDOM.render(<div><Addlist /><Checkbox task={items}/></div>,document.body);
+  </script>
+	<script type="text/javascript" src="bower_components/babel/browser.min.js"></script>
+</body>
+</html>

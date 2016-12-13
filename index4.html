@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+</head>
+<body>
+<script type="text/javascript">
+
+try {
+	//alert(a);
+	throw new ReferenceError("a is not defined",'file.js',10);
+} catch (e) {
+  if (e instanceof ReferenceError) {
+    alert(e.name +' : '+e.message +' at '+e.stack);
+  }
+}
+</script>
+</body>
+</html>

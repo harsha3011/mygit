@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="bower_components/react/react.min.js"></script>
+  <script type="text/javascript" src="bower_components/react/react-dom.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+  <div id="mynnn"></div> 
+  <script type="text/babel">
+   var Addlist=React.createClass({
+   adding: function(){
+   var val = this.refs.additem.value;
+   console.log('Adding thee content',val);
+   },
+   render: function(){
+   return (<div>
+     <textarea ref="additem"></textarea>
+     <button onClick={this.adding}>ADD</button>
+   </div>
+     );
+   }
+   });
+    var Checkbox = React.createClass({
+    getInitialState: function(){
+    return {checked:false};
+  },
+    handleChecked: function(){
+    this.setState({checked : !this.state.checked})
+  },
+  render : function(){
+  
+  if(this.state.checked){
+    return (<li>
+    <input type="checkbox" onChange={this.handleChecked}/><strike>{this.props.task}</strike>
+  </li>);
+    }
+    else{
+     return (<li>
+    <input type="checkbox" onChange={this.handleChecked} />{this.props.task}
+  </li>);
+    }
+  
+  }
+  
+   });
+   ReactDOM.render(<div><Addlist /><ul><Checkbox task="Books"/><Checkbox task="Medicine"/><Checkbox task="Vegetables"/></ul></div>,document.getElementById('mynnn'));
+  </script>
+  <script type="text/javascript" src="bower_components/babel/browser.min.js"></script>
+</body>
+</html>

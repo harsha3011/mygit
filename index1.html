@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="bower_components/react/react.min.js"></script>
+	<script type="text/javascript" src="bower_components/react/react-dom.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+  <div id="mynnn"></div> 
+  <script type="text/babel">
+
+    var Additem =React.createClass({
+    render : function(){
+    return (
+      <form>
+        <input type="text" placeholder="search" />
+        <input type="submit" value="Submit" />
+      </form>
+    );
+    }
+    });
+    var Total=React.createClass({
+    render : function(){
+    return (
+      <div>
+        <Additem />
+      </div>
+    );
+    }
+    });
+    
+    ReactDOM.render(<div><Total /></div>,document.body);
+  </script>
+	<script type="text/javascript" src="bower_components/babel/browser.min.js"></script>
+</body>
+</html>
